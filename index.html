@@ -32,20 +32,34 @@
         <div>
             <select name="category" required>
                 <option value="食費">食費</option>
+                <option value="水道光熱費">水道光熱費</option>
+                <option value="交通費">交通費</option>
+                <option value="ガソリン代">ガソリン代</option>
                 <option value="施設維持費">施設維持費</option>
                 <option value="消耗品">消耗品</option>
-                <option value="新規プロジェクト系">新規プロジェクト系</option>
-                <option value="通常業務">通常業務</option>
-                <option value="積立">積立</option>
+                <option value="租税公課">租税公課</option>
+                <option value="輸出関連">輸出関連</option>
+                <option value="雑費">雑費</option>
+                <option value="雑費">その他</option>
             </select>
+        </div>
+        <p class="mt-3">品名</p>
+        <div>
+            <input class="form-control w-100 mt-1" name="productname" required value="">
         </div>
         <p class="mt-3">金額（数値のみ）</p>
         <div>
             <input class="form-control w-100 mt-1" name="amount" required>
         </div>
+        <p class="mt-3">決済方法</p>
+        <div>
+            <input type="radio" name="settlement" value="現金">現金<br>
+            <input type="radio" name="settlement" value="ETCカード">ETCカード<br>
+            <input type="radio" name="settlement" value="クレジットカード">クレジットカード<br>
+        </div>
         <p class="mt-3">備考</p>
         <div>
-            <input class="form-control w-100 mt-1" name="text" required>
+            <input class="form-control w-100 mt-1" name="text"value="">
         </div>
         <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
@@ -90,9 +104,11 @@
             $('form').submit(function () {
                 const date    = $('input[name="date"]').val();
                 const category = $('select[name="category"]').val();
+                const productname = $('select[name="productname"]').val();
                 const amount  = $('input[name="amount"]').val();
+                const settlement  = $('input[name="settlement"]').val();
                 const text = $('input[name="text"]').val();
-                const msg = `${date}\n${category}\n${amount}\n${text}`;
+                const msg = `${date}\n${category}\n${productname}\n${amount}\n${settlement}\n${text}`;
                 sendText(msg);
                 return false;
             });
