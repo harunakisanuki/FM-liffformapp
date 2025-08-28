@@ -30,7 +30,7 @@
         </script>
         <p class="mt-3">分類</p>
         <div>
-            <select name="分類">
+            <select name="category">
                 <option value="食費">食費</option>
                 <option value="施設維持費">施設維持費</option>
                 <option value="消耗品">消耗品</option>
@@ -41,15 +41,15 @@
         </div>
         <p class="mt-3">金額（数値のみ）</p>
         <div>
-            <input class="form-control w-100 mt-1" name="fukkin" required>
+            <input class="form-control w-100 mt-1" name="amount" required>
         </div>
         <p class="mt-3">立て替えた場合はチェックをする</p>
         <div>
-           <input type="checkbox" name="Replacemet" value="Replacemet">立て替えた<br>
+           <input type="checkbox" name="replacemet" value="replacemet">立て替えた<br>
         </div>
         <p class="mt-3">備考</p>
         <div>
-            <input class="form-control w-100 mt-1" name="haikin" required>
+            <input class="form-control w-100 mt-1" name="text" required>
         </div>
         <input type="submit" class="mt-4 btn btn-primary" value="送信">
     </form>
@@ -92,12 +92,12 @@
 
         $(function () {
             $('form').submit(function () {
-                const name    = $('input[name="name"]').val();
-                const udetate = $('input[name="udetate"]').val();
-                const fukkin  = $('input[name="fukkin"]').val();
-                const haikin  = $('input[name="haikin"]').val();
-                const sukuwat = $('input[name="sukuwat"]').val();
-                const msg = `${name}\n${udetate}\n${fukkin}\n${haikin}\n${sukuwat}`;
+                const date    = $('input[name="date"]').val();
+                const category = $('input[name="category"]').val();
+                const amount  = $('input[name="amount"]').val();
+                const replacemet  = $('input[name="replacemet"]').val();
+                const text = $('input[name="text"]').val();
+                const msg = `${name}\n${udetate}\n${fukkin}\n${replacemet}\n${text}`;
                 sendText(msg);
                 return false;
             });
