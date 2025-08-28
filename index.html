@@ -8,12 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
 </head>
 <body>
-
     <form class="w-75 mx-auto">
         <p class="mt-3">日付</p>
         <div>
-            <input class="form-control w-100 mt-1" name="name" placeholder="" required>
+            <input type="date" id="inputDate" value="{inputDate}" />
+        //<p>選択された日付: <span id="dateResult"></span></p>
         </div>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const inputDate = document.querySelector("#inputDate");
+            const dateResult = document.querySelector("#dateResult");
+
+            // 初期値を表示
+            dateResult.innerHTML = inputDate.value;
+
+            // 日付変更時に表示を更新
+            inputDate.addEventListener("change", (e) => {
+              const value = e.target.value;
+              dateResult.innerHTML = value;
+            });
+        });
+        </script>
         <p class="mt-3">分類</p>
         <div>
             <select name="分類">
