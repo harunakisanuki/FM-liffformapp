@@ -40,7 +40,7 @@
                 <option value="租税公課">租税公課</option>
                 <option value="輸出関連">輸出関連</option>
                 <option value="雑費">雑費</option>
-                <option value="雑費">その他</option>
+                <option value="その他">その他</option>
             </select>
         </div>
         <p class="mt-3">品名</p>
@@ -104,7 +104,7 @@
             $('form').submit(function () {
                 const date    = $('input[name="date"]').val();
                 const category = $('select[name="category"]').val();
-                const productname = $(input[name="productname"]').val();
+                const productname = $('input[name="productname"]').val();
                 const amount  = $('input[name="amount"]').val();
                 const settlement  = $('input[name="settlement"]').val();
                 const text = $('input[name="text"]').val();
